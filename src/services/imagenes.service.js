@@ -24,7 +24,8 @@ async function generarImagen(prompt, nombre) {
   const filePath = path.join(IMAGENES_DIR, nombre);
   fs.writeFileSync(filePath, Buffer.from(response.data));
 
-  return `http://localhost:3000/imagenes/${nombre}`;
+  const baseUrl = process.env.PUBLIC_URL || 'http://localhost:3000';
+  return `${baseUrl}/imagenes/${nombre}`;
 }
 
 async function generarImagenes(escenas) {
