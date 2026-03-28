@@ -4,6 +4,10 @@ const path = require('path');
 
 const IMAGENES_DIR = path.join(__dirname, '../../public/imagenes');
 
+if (!fs.existsSync(IMAGENES_DIR)) {
+  fs.mkdirSync(IMAGENES_DIR, { recursive: true });
+}
+
 async function generarImagen(prompt, nombre) {
   const promptCompleto = `cinematic dreamy scene, ${prompt}, surreal, atmospheric, high quality`;
 
